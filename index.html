@@ -6,99 +6,174 @@
 <title>VacÍA Entertainment</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #ffffff;
-        color: #e6e6e6;
-        overflow-x: hidden;
-    }
+body{
+    margin:0;
+    background:#000;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    overflow:hidden;
+    color:white;
+}
 
-    /* Barra superior */
-    .topbar {
-        width: 100%;
-        height: 60px;
-        background: #f2f2f2;
-        display: flex;
-        align-items: center;
-        padding-left: 40px;
-        position: relative;
-        border-bottom: 1px solid #e0e0e0;
-    }
+/* ===== NAVBAR 3D ===== */
+.navbar{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    height:70px;
+    background:linear-gradient(145deg,#111,#1c1c1c);
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    padding:0 40px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.8),
+        inset 0 1px 2px rgba(255,255,255,0.1);
+    z-index:10;
+}
 
-    .logo {
-        font-size: 18px;
-        letter-spacing: 4px;
-        color: #bfbfbf;
-        cursor: pointer;
-        user-select: none;
-    }
+/* Logo */
+.logo{
+    font-size:18px;
+    letter-spacing:6px;
+    cursor:pointer;
+    color:#aaa;
+    transition:0.3s;
+}
 
-    /* Menú desplegable */
-    .dropdown {
-        position: absolute;
-        top: 60px;
-        left: 40px;
-        background: #ffffff;
-        border: 1px solid #e5e5e5;
-        width: 220px;
-        display: none;
-        flex-direction: column;
-        padding: 10px 0;
-    }
+.logo:hover{
+    color:white;
+}
 
-    .dropdown a {
-        padding: 10px 20px;
-        text-decoration: none;
-        color: #999999;
-        font-size: 14px;
-        transition: 0.2s;
-    }
+/* ===== MENU 3D ===== */
+.menu{
+    position:absolute;
+    top:90px;
+    left:40px;
+    width:240px;
+    background:linear-gradient(145deg,#111,#1a1a1a);
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.8);
+    transform-origin:top;
+    transform:rotateX(-90deg);
+    transition:transform 0.4s ease;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
 
-    .dropdown a:hover {
-        background: #f5f5f5;
-        color: #666666;
-    }
+.menu.active{
+    transform:rotateX(0deg);
+}
 
-    /* Submenú */
-    .submenu {
-        display: none;
-        flex-direction: column;
-        padding-left: 20px;
-    }
+.menu a{
+    padding:14px 20px;
+    text-decoration:none;
+    color:#aaa;
+    font-size:14px;
+    transition:0.2s;
+}
 
-    .center {
-        height: 80vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
+.menu a:hover{
+    background:#222;
+    color:white;
+}
 
-    .main-title {
-        font-size: 90px;
-        letter-spacing: 20px;
-        color: #f0f0f0;
-        font-weight: 300;
-    }
+/* Submenu */
+.submenu{
+    display:none;
+    flex-direction:column;
+    padding-left:15px;
+}
 
-    .footer {
-        text-align: center;
-        font-size: 12px;
-        color: #d9d9d9;
-        padding-bottom: 20px;
-        letter-spacing: 2px;
-    }
+.submenu a{
+    font-size:13px;
+}
 
+/* ===== CENTRO ===== */
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+}
+
+/* Texto 3D degradado */
+.title{
+    font-size:120px;
+    letter-spacing:25px;
+    font-weight:300;
+    background:linear-gradient(to bottom, #ffffff, #888888);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:
+        0 5px 15px rgba(255,255,255,0.1),
+        0 10px 40px rgba(255,255,255,0.05);
+    position:relative;
+    z-index:2;
+}
+
+/* ===== CUBO 3D ===== */
+.cube-wrapper{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:200px;
+    height:200px;
+    perspective:800px;
+}
+
+.cube{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:rotateCube 8s infinite linear;
+}
+
+.face{
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:white;
+    opacity:0.05;
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+.front  { transform: translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes rotateCube{
+    0%{ transform:rotateX(0deg) rotateY(0deg); }
+    100%{ transform:rotateX(360deg) rotateY(360deg); }
+}
+
+/* Footer */
+.footer{
+    position:fixed;
+    bottom:20px;
+    width:100%;
+    text-align:center;
+    font-size:12px;
+    color:#555;
+    letter-spacing:2px;
+}
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
+<div class="navbar">
     <div class="logo" onclick="toggleMenu()">vacía</div>
 
-    <div class="dropdown" id="menu">
+    <div class="menu" id="menu">
         <a href="#">Empresa</a>
         <a href="#">Derechos</a>
         <a href="#" onclick="toggleSubmenu(event)">Proyectos ▾</a>
@@ -106,29 +181,37 @@
         <div class="submenu" id="submenu">
             <a href="#">Vacía Animations</a>
             <a href="#">Vacía Music</a>
-            <a href="#">▧▧▧▧▧▧▧ ▧▧▧▧▧▧</a>
+            <a href="/projectsaturn/">▧▧▧▧▧▧▧ ▧▧▧▧▧▧</a>
         </div>
     </div>
 </div>
 
-<div class="center">
-    <div class="main-title">
-        V<span style="color:#ebebeb;">a</span>c<span style="color:#ebebeb;">í</span><span style="color:#dcdcdc;">A</span>
+<div class="cube-wrapper">
+    <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
     </div>
 </div>
 
+<div class="center">
+    <div class="title">VacÍA</div>
+</div>
+
 <div class="footer">
-    Todos los derechos observados · Vacía Entertainment
+    Todos los derechos observados · VacÍA Entertainment
 </div>
 
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
 }
 
-function toggleSubmenu(event) {
-    event.preventDefault();
+function toggleSubmenu(e){
+    e.preventDefault();
     const submenu = document.getElementById("submenu");
     submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
 }
