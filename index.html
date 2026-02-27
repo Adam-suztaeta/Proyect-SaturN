@@ -15,6 +15,26 @@ body {
     color: white;
 }
 
+.section ul {
+    font-size: 22px;
+    line-height: 1.9;
+    list-style-type: none;
+    padding: 0;
+}
+
+.section ul li {
+    margin-bottom: 18px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.section ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: white;
+} 
+    
 /* ===== Fondo estrellas ===== */
 body::before {
     content: "";
