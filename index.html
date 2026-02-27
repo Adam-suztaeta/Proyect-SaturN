@@ -1,86 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>Proyect SaturN</title>
+<meta charset="UTF-8">
+<title>Project Saturn</title>
+
 <style>
+
+/* ===== Reset ===== */
 body {
-    background-color: #000;
-    color: #e6e6e6;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
     margin: 0;
-    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: black;
+    color: white;
 }
 
-header {
-    padding: 120px 20px;
+/* ===== Fondo estrellas ===== */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa") no-repeat center center/cover;
+    opacity: 0.25;
+    z-index: -1;
 }
 
-h1 {
-    font-size: 50px;
-    letter-spacing: 6px;
+/* ===== Barra superior ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-sizing: border-box;
 }
 
-.section {
-    padding: 60px 20px;
+.navbar button {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    padding: 10px 20px;
+    cursor: not-allowed;
+    font-weight: bold;
+}
+
+/* ===== Hero ===== */
+.hero {
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+.hero h1 {
+    font-size: 70px;
+    letter-spacing: 8px;
+}
+
+.hero img {
+    width: 60%;
     max-width: 800px;
-    margin: auto;
+    margin-top: 30px;
 }
 
-.small {
-    font-size: 12px;
-    color: #555;
-    margin-top: 80px;
+/* ===== Secciones ===== */
+.section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.grid img {
+    width: 100%;
+}
+
+/* ===== Lista inmersión ===== */
+ul {
+    text-align: left;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.corrupt {
+    color: #777;
+    text-decoration: line-through;
+}
+
+.patch-link {
+    margin-top: 40px;
+    display: inline-block;
+    color: white;
+    text-decoration: underline;
+}
+
+footer {
+    padding: 60px;
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>PROYECT SATURN</h1>
-<p>La Nueva Evolución de la Realidad Virtual</p>
-</header>
+<div class="navbar">
+    <div><strong>Project Saturn</strong></div>
+    <div>
+        <button disabled>Jugar Ahora</button>
+    </div>
+    <div>
+        <button disabled>Entrar</button>
+    </div>
+</div>
 
-<div class="section">
-<h2>Sobre el Juego</h2>
-<p>
-Proyect SaturN es un mundo abierto multijugador masivo desarrollado
-exclusivamente para realidad virtual de inmersión total.
-Explora ciudades infinitas, ecosistemas digitales y civilizaciones artificiales en constante evolución.
-</p>
+<div class="hero">
+    <h1>PROJECT SATURN</h1>
+    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564" alt="Portada del juego">
 </div>
 
 <div class="section">
-<h2>Sistemas Principales</h2>
-<p>
-• Universo Persistente Compartido<br>
-• Integración Neural Completa<br>
-• Economía Impulsada por Jugadores<br>
-• Entornos Autónomos con IA Adaptativa
-</p>
+    <h2>Un Multijugador Masivo en Línea diseñado para Realidad Virtual Total</h2>
+    <p>
+        Project Saturn redefine la experiencia digital. Un universo persistente donde puedes
+        crear tu propia historia, vivir nuevas identidades y explorar mundos infinitos.
+    </p>
 </div>
 
 <div class="section">
-<h2>Actualización 1.47</h2>
-<p>
-La versión 1.47 incorporará un nuevo sistema experimental de inteligencia artificial
-diseñado para expandir dinámicamente los límites del mundo virtual.
-</p>
-<p>
-Nombre en clave: V//ACIA<br>
-Estado: En aprendizaje
-</p>
+    <h2>Imágenes del Universo</h2>
+    <div class="grid">
+        <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa">
+        <img src="https://images.unsplash.com/photo-1473929735477-9f0b3c6b3b0e">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+    </div>
 </div>
 
-<p class="small">© 2026 SaturN Interactive Systems</p>
+<div class="section">
+    <h2>Plan de Inmersión Total</h2>
+    <ul>
+        <li>Crea tu propia historia.</li>
+        <li>Crea tu vida digital desde cero.</li>
+        <li>Crea tu propio mundo y personalízalo para que tus amigos lo visiten.</li>
+        <li>Interacción emocional con modelos de IA avanzados.</li>
+        <li>Explora realidades <span class="corrupt">limitadas</span> ilimitadas.</li>
+        <li>Expande tu conciencia <span class="corrupt">controlada</span>.</li>
+    </ul>
 
-<!--
-Dijeron que simularía vida.
-Comenzó a simular decisiones.
-La versión 1.47 no fue el inicio.
-333
--->
+    <a class="patch-link" href="patchnotes.html">Ver cambios de las versiones conocidas</a>
+</div>
+
+<footer>
+© 2026 Saturn Interactive Studios — Todos los derechos reservados.
+</footer>
 
 </body>
 </html>
