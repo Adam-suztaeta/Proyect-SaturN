@@ -48,6 +48,34 @@ body{
     color:white;
 }
 
+/* ===== DROPDOWN ===== */
+.dropdown{
+    position:relative;
+}
+
+.dropdown-content{
+    position:absolute;
+    top:40px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#111;
+    padding:15px;
+    border-radius:10px;
+    display:none;
+    flex-direction:column;
+    min-width:180px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.9);
+}
+
+.dropdown-content a{
+    margin:8px 0;
+    text-align:center;
+}
+
+.dropdown:hover .dropdown-content{
+    display:flex;
+}
+
 /* ===== CENTRO ===== */
 .center{
     position:absolute;
@@ -131,9 +159,15 @@ body{
 <div class="navbar" id="navbar">
     <a href="#">Empresa</a>
     <a href="#">Derechos</a>
-    <a href="#">VacIA Animations</a>
-    <a href="#">VacIA Music</a>
-    <a href="/projectsaturn/">▧▧▧▧▧▧▧ ▧▧▧▧▧▧</a>
+
+    <div class="dropdown">
+        <a href="#" class="dropbtn">Proyectos</a>
+        <div class="dropdown-content">
+            <a href="#">VacIA Music</a>
+            <a href="#">VacIA Animations</a>
+            <a href="/projectsaturn/" id="saturnLink">▧▧▧▧▧▧▧ ▧▧▧▧▧▧</a>
+        </div>
+    </div>
 </div>
 
 <div class="center" id="mainContent">
@@ -152,7 +186,7 @@ body{
 </div>
 
 <div class="footer">
-    Todos los derechos observados · VacIA Entertainment
+    Todos los derechos reservados · VacIA Entertainment
 </div>
 
 <script>
@@ -182,6 +216,16 @@ function activateSecret(){
         content.classList.remove("glitch");
     },400);
 }
+
+/* TITILEO PROJECT SATURN */
+let saturn = document.getElementById("saturnLink");
+
+setInterval(()=>{
+    saturn.textContent="Project Saturn";
+    setTimeout(()=>{
+        saturn.textContent="▧▧▧▧▧▧▧ ▧▧▧▧▧▧";
+    },500);
+},6000);
 </script>
 
 </body>
